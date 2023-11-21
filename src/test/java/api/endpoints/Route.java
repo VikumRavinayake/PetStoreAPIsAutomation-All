@@ -9,15 +9,17 @@ public class Route {
         3. /pet/findByStatus --> findByStatus
         4. /pet/{petId}/uploadImage --> uploadImage
         */ 
-    public static String petPatternOneUrl = baseUrl + "/pet";
-    public static String petPatternTwoUrl = baseUrl + "/pet/{petId}";
-    public static String petFindByStatusUrl = baseUrl + "/pet/findByStatus";
-    public static String petUploadImageUrl = baseUrl + "/pet/findByStatus";
+    public static String urlPatternOne = baseUrl + "/pet";
+    public static String urlPatternTwo = urlPatternOne + "/{petId}";
+    public static String uploadImageUrl = urlPatternTwo + "/uploadImage";
+    public static String findByStatusUrl = urlPatternOne + "/findByStatus";
 
-    //user model routes
+    // user model routes
 	public static String postUrl  = baseUrl + "/user";
 	public static String getUrl  = baseUrl + "/user/{username}";
 	public static String updateUrl  = baseUrl + "/user/{username}";
 	public static String deleteUrl  = baseUrl + "/user/{username}";
+
+    // store model routes
 	
 }

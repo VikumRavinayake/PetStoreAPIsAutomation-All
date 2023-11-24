@@ -3,7 +3,7 @@ package api.endpoints;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 
-import api.payloads.PetPayload;
+import api.payloads.Pet;
 import io.restassured.response.Response;
 
 public class PetEndpoint {
@@ -18,7 +18,7 @@ public class PetEndpoint {
      */
 
     // add new pet 
-    public static Response addPet(PetPayload payload){
+    public static Response addPet(Pet payload){
         Response response;
         response = given()
                     .contentType("application/json")
@@ -52,7 +52,7 @@ public class PetEndpoint {
     }
 
     // update an existing pet
-    public static Response updatePet(PetPayload payload){
+    public static Response updatePet(Pet payload){
         Response response;
         response = given()
                         .contentType("application/json")

@@ -2,12 +2,12 @@ package api.payloads;
 
 import java.util.List;
 
-public class PetPayload {
+public class Pet {
     private int id;
     private Category category;
     private String name;
     private List<String> photoUrls;
-    private List<Tag> tag;
+    private List<Tag> tags;
     private String status = "available";
 
     public int getId() {
@@ -42,12 +42,12 @@ public class PetPayload {
         this.photoUrls = photoUrls;
     }
 
-    public List<Tag> getTag() {
-        return tag;
+    public List<Tag> getTags() {
+        return tags;
     }
 
-    public void setTag(List<Tag> tag) {
-        this.tag = tag;
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
     public String getStatus() {
@@ -65,6 +65,11 @@ public class PetPayload {
 
         public Category(){
 
+        }
+
+        public Category(int id, String name){
+            this.id = id;
+            this.name = name;
         }
 
         public int getId() {
@@ -88,7 +93,12 @@ public class PetPayload {
         private String name;
 
         public Tag(){
+            
+        }
 
+        public Tag(int id, String name){
+           this.id = id; 
+           this.name = name;
         }
 
         public int getId() {

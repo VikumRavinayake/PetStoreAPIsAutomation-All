@@ -33,7 +33,7 @@ public class PetEndpoint {
     public static Response findPetById(int id){
         Response response;
         response = given()
-                        .pathParam("PetId",id)
+                        .pathParam("petId",id)
                         .accept("application/json")
                     .when()
                         .get(Route.urlPatternTwo);    
@@ -64,11 +64,12 @@ public class PetEndpoint {
     }
 
     // update a pet in store using form data
-    public static Response updatePetForm(int id, String name, String status ){
+    public static Response updatePetForm(int id, String name, String status){
         Response response;
         response = given()
                         .contentType("application/x-www-form-urlencoded")
                         .accept("application/json")
+                        .pathParam("petId", id)
                         .formParam("name", name)
                         .formParam("status", status)
                     .when()
@@ -81,6 +82,7 @@ public class PetEndpoint {
         Response response;
         response = given()
                         .accept("application/json")
+                        .pathParam("petId", id)
                     .when()
                         .delete(Route.urlPatternTwo);
         return response;

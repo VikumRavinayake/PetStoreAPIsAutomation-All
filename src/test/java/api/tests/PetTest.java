@@ -36,8 +36,8 @@ public class PetTest {
         payload.setPhotoUrls(photoUrls);
         payload.setTags(tags);
         payload.setStatus("available");
-        System.out.println(payload.getTags());
-        System.out.println(payload.getId());
+        //System.out.println(payload.getTags());
+        //System.out.println(payload.getId());
 
     }
     // test - add new pet
@@ -46,5 +46,33 @@ public class PetTest {
         Response response = PetEndpoint.addPet(payload);
         // validation section
         Assert.assertEquals(response.getStatusCode(), 200 );
+    }
+
+    @Test(priority=2)
+    public void testGetPetById(){
+        Response response = PetEndpoint.findPetById(payload.getId());
+        // validation section
+        Assert.assertEquals(response.getStatusCode(), 200);
+    }
+
+    @Test(priority=3)
+    public void testFindPetByStatus(){
+        Response response = PetEndpoint.findPetByStatus("Available");
+        // validation section
+        Assert.assertEquals(response.getStatusCode(), 200);
+    }
+
+    @Test(priority=4)
+    public void testUpdateExistingPetViaFormData(){
+        Response response = PetEndpoint.updatePetForm(payload.getId(), fake.name().username(), "available");
+        // validation section
+        Assert.assertEquals(response.getStatusCode(), 200);
+    }
+
+    @Test(priority=5)
+    public void testDeletePet(){
+        Response response = PetEndpoint.deletePet(payload.getId());
+        // validation section
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 }

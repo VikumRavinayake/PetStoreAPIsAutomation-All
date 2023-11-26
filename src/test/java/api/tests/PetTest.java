@@ -41,7 +41,7 @@ public class PetTest {
 
     }
     // test - add new pet
-    @Test(priority=1)
+    @Test(priority=1, groups={"PET APIS"})
     public void testAddPet(){
         Response response = PetEndpoint.addPet(payload);
         // validation section
